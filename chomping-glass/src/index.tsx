@@ -13,12 +13,15 @@ import {
 } from "@solana/wallet-adapter-react-ui";
 // Default styles that can be overridden by your app
 require("@solana/wallet-adapter-react-ui/styles.css");
+
+const isDevelopment = window.location.hostname === "localhost";
+const RPC_TOKEN = process.env.REACT_APP_RPC_TOKEN || "";
+const RPC_URL = process.env.REACT_APP_RPC_URL || "";
+
 function Root() {
   return (
     <ConnectionProvider
-      endpoint={
-        "https://rpc.helius.xyz/?api-key=ce78d77c-0902-4380-9b0d-5353948a10ea"
-      }
+      endpoint={`${RPC_URL}${isDevelopment ? RPC_TOKEN : ""}`}
     >
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
