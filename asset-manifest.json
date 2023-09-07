@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/chomping-glass/static/css/main.3efc0a15.css",
-    "main.js": "/chomping-glass/static/js/main.44abaf6d.js",
-    "static/js/787.a9316762.chunk.js": "/chomping-glass/static/js/787.a9316762.chunk.js",
-    "index.html": "/chomping-glass/index.html",
-    "main.3efc0a15.css.map": "/chomping-glass/static/css/main.3efc0a15.css.map",
-    "main.44abaf6d.js.map": "/chomping-glass/static/js/main.44abaf6d.js.map",
-    "787.a9316762.chunk.js.map": "/chomping-glass/static/js/787.a9316762.chunk.js.map"
+    "main.css": "./static/css/main.3efc0a15.css",
+    "main.js": "./static/js/main.40734320.js",
+    "static/js/787.a9316762.chunk.js": "./static/js/787.a9316762.chunk.js",
+    "index.html": "./index.html",
+    "main.3efc0a15.css.map": "./static/css/main.3efc0a15.css.map",
+    "main.40734320.js.map": "./static/js/main.40734320.js.map",
+    "787.a9316762.chunk.js.map": "./static/js/787.a9316762.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3efc0a15.css",
-    "static/js/main.44abaf6d.js"
+    "static/js/main.40734320.js"
   ]
 }
