@@ -17,12 +17,11 @@ require("@solana/wallet-adapter-react-ui/styles.css");
 const isDevelopment = window.location.hostname === "localhost";
 const RPC_TOKEN = process.env.REACT_APP_RPC_TOKEN || "";
 const RPC_URL = process.env.REACT_APP_RPC_URL || "";
-const HELIUS_RPC_URL = process.env.REACT_APP_HELIUS || "";
 
 function Root() {
   return (
     <ConnectionProvider
-      endpoint={!isDevelopment ? HELIUS_RPC_URL : `${RPC_URL}${RPC_TOKEN}`}
+      endpoint={!isDevelopment ? RPC_URL : `${RPC_URL}${RPC_TOKEN}`}
     >
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
