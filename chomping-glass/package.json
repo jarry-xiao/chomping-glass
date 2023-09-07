@@ -1,7 +1,7 @@
 {
   "name": "chomping-glass",
   "version": "0.1.0",
-  "homepage": "https://jarry-xiao.github.io/chomping-glass/",
+  "homepage": "https://www.chompingglass.com",
   "private": true,
   "dependencies": {
     "@solana/wallet-adapter-react": "^0.15.35",
