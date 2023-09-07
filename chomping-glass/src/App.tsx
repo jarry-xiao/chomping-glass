@@ -547,7 +547,7 @@ function App() {
                   }}
                 >
                   <img
-                    src={"/glass.png"}
+                    src={`${process.env.REACT_APP_BASE_URL}/glass.png`}
                     alt="glass"
                     style={{
                       width: "80%",
