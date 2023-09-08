@@ -414,8 +414,8 @@ function App() {
       <div
         style={{ display: "flex", padding: "5px", justifyContent: "center" }}
       >
-        The goal of this game is to outsmart your opponent and force them to
-        take the last piece of "candy".
+        The goal of this game is to outsmart your opponent and take the last
+        piece of real candy.
       </div>
       <div
         style={{ display: "flex", padding: "5px", justifyContent: "center" }}
