@@ -11,8 +11,11 @@ import {
   WalletModalProvider,
   WalletMultiButton,
 } from "@solana/wallet-adapter-react-ui";
+import { ToastContainer } from "react-toastify";
+
 // Default styles that can be overridden by your app
 require("@solana/wallet-adapter-react-ui/styles.css");
+require("react-toastify/dist/ReactToastify.css");
 
 const isDevelopment = window.location.hostname === "localhost";
 const RPC_TOKEN = process.env.REACT_APP_RPC_TOKEN || "";
@@ -36,7 +39,10 @@ function Root() {
           >
             <WalletMultiButton />
           </div>
-          <App />
+          <div>
+            <ToastContainer />
+            <App />
+          </div>
         </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>

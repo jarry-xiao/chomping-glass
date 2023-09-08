@@ -13,6 +13,7 @@ import Confetti from "react-dom-confetti";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { Buffer } from "buffer";
 import base58 from "bs58";
+import { toast } from "react-toastify";
 window.Buffer = Buffer;
 
 const PROGRAM_ID = new PublicKey(
@@ -113,6 +114,30 @@ function Popup({
     </div>
   );
 }
+const notify = (text: string, link?: string, linkText?: string) => {
+  toast(
+    <div>
+      {text}
+      {link && linkText && (
+        <>
+          <br />{" "}
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            {linkText}
+          </a>
+        </>
+      )}
+    </div>,
+    {
+      position: "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+    }
+  );
+};
 
 function App() {
   const { connection } = useConnection();
@@ -250,6 +275,11 @@ function App() {
               break;
             }
           }
+          notify(
+            `${signature}`,
+            `https://solscan.io/tx/${signature}`,
+            "View on Solscan"
+          );
         } else {
           console.error("No log messages found for transaction", signature);
         }
@@ -301,6 +331,7 @@ function App() {
       PROGRAM_ID
     );
 
+    let prevBoard: boolean[][];
     let subId = -1;
     const streamGame = async () => {
       try {
@@ -313,7 +344,10 @@ function App() {
           account.data.slice(0, 5).forEach((x) => {
             board.push(toBooleanArray(x));
           });
-          setGameState({ eaten: board });
+          if (!prevBoard || !compareBoards(board, prevBoard || [])) {
+            setGameState({ eaten: board });
+            prevBoard = board;
+          }
         }
       } catch (e) {}
 
@@ -329,7 +363,10 @@ function App() {
               result.data.slice(0, 5).forEach((x) => {
                 board.push(toBooleanArray(x));
               });
-              setGameState({ eaten: board });
+              if (!prevBoard || !compareBoards(board, prevBoard || [])) {
+                setGameState({ eaten: board });
+                prevBoard = board;
+              }
             } catch (e) {
               return;
             }
@@ -340,7 +377,6 @@ function App() {
     };
     streamGame();
     // create a polling loop to fetch the game state
-    let prevBoard: boolean[][];
     const interval = setInterval(async () => {
       try {
         const account = await connection.getAccountInfo(gameKey, "confirmed");
