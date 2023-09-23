@@ -265,7 +265,7 @@ function App() {
               ]);
             } else if (message.includes("You lose!")) {
               setGameState(getGameOverState(false));
-              setPopupText("You lose!");
+              setPopupText("You Lose!");
               setPopupOpen(true);
               break;
             } else if (message.includes("You win!")) {
